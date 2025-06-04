@@ -1,0 +1,387 @@
+/* Хэдэр */
+
+:root {
+    --border-radius: 8px;
+    --logo-gap: 80px;
+    --footer-bg: #1f1f1f;
+    --text-color: #ffffff;
+    --social-icon-size: 40px;
+    --header-bg: #1f1f1f;
+    --button-bg: #353535;
+    --button-hover: #636363;
+    --accent-color: #fdd835;
+    --brbr-color: #ffffff;
+    --card-bg: #1f1f1f;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Занимает всю высоту viewport */
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+}
+
+main {
+    flex: 1 0 auto; /* Занимает все доступное пространство */
+    padding-bottom: 30px; /* Отступ от футера */
+    width: 100%;
+}
+
+header {
+    background-color: var(--header-bg);
+    color: var(--text-color);
+    font-size: 1.1rem;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    margin-right: var(--logo-gap);
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    color: var(--accent-color);
+}
+
+.logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+nav.desktop-menu {
+    display: flex;
+    gap: 2rem;
+    flex-grow: 1;
+}
+
+nav.desktop-menu a {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    background-color: var(--button-bg);
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+nav.desktop-menu a.active {
+    background-color: var(--accent-color);
+    color: #121212;
+}
+
+nav.desktop-menu a:hover {
+    background-color: var(--button-hover);
+    transform: translateY(-2px);
+}
+
+.auth-button {
+    color: #fdd835;
+    font-weight: bold;
+    margin-left: auto;
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.7rem;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+nav.mobile-menu {
+    display: none;
+    width: 100%;
+    background-color: var(--header-bg);
+    padding: 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+}
+
+nav.mobile-menu a {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 0.8rem 1rem;
+    background-color: var(--button-bg);
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+nav.mobile-menu a:hover {
+    background-color: var(--button-hover);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .logo-container {
+        margin-right: auto;
+    }
+    
+    nav.desktop-menu {
+        display: none;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    nav.mobile-menu.active {
+        display: flex;
+    }
+
+    :root {
+        --logo-gap: 20px;
+    }
+
+    .main-container {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-container {
+        position: static;
+    }
+}
+
+/* Стили футера */
+footer {
+    flex-shrink: 0; /* Запрещаем сжатие футера */
+    background-color: var(--footer-bg);
+    color: var(--text-color);
+    padding: 30px 0;
+    width: 100%;
+    margin-top: auto; /* Прижимаем футер к низу */
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 20px;
+    padding: 0 15px;
+}
+
+.footer-logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.footer-logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.footer-title {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: var(--accent-color);
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.social-link {
+    display: inline-block;
+    width: var(--social-icon-size);
+    height: var(--social-icon-size);
+    transition: transform 0.3s ease;
+}
+
+.social-link:hover {
+    transform: scale(1.1);
+}
+
+.footer-link {
+    color: var(--text-color);
+    text-decoration: none;
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: var(--accent-color);
+}
+
+.contact-info {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-section {
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .footer-logo {
+        justify-content: center;
+    }
+}
+
+/*________________________________________________________________________________*/
+
+/*Стили добавления файла*/
+.complete-order-container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.complete-order-container h1 {
+    color: var(--accent-color);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.complete-order-form {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: var(--border-radius);
+}
+
+.form-section {
+    margin-bottom: 30px;
+}
+
+.form-section h2 {
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.file-upload {
+    margin-bottom: 20px;
+}
+
+.file-upload-label {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: var(--button-bg);
+    color: var(--text-color);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.file-upload-label:hover {
+    background-color: var(--button-hover);
+}
+
+.file-upload-label input {
+    display: none;
+}
+
+.file-upload-info {
+    margin-top: 10px;
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+textarea {
+    width: 100%;
+    min-height: 150px;
+    padding: 15px;
+    background-color: var(--button-bg);
+    color: var(--text-color);
+    border: 1px solid #444;
+    border-radius: var(--border-radius);
+    resize: vertical;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.btn {
+    padding: 12px 25px;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-complete {
+    background-color: var(--accent-color);
+    color: #121212;
+}
+
+.btn-cancel {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}

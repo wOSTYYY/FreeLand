@@ -1,0 +1,455 @@
+:root {
+    --border-radius: 8px;
+    --logo-gap: 80px;
+    --footer-bg: #1f1f1f;
+    --text-color: #ffffff;
+    --social-icon-size: 40px;
+    --header-bg: #1f1f1f;
+    --button-bg: #353535;
+    --button-hover: #636363;
+    --accent-color: #fdd835;
+    --brbr-color: #ffffff;
+    --card-bg: #1f1f1f;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: var(--header-bg);
+    color: var(--text-color);
+    font-size: 1.1rem;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    flex-wrap: wrap;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    margin-right: var(--logo-gap);
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    color: var(--accent-color);
+}
+
+.logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+nav.desktop-menu {
+    display: flex;
+    gap: 2rem;
+    flex-grow: 1;
+}
+
+nav.desktop-menu a {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    background-color: var(--button-bg);
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+nav.desktop-menu a.active {
+    background-color: var(--accent-color);
+    color: #121212;
+}
+
+nav.desktop-menu a:hover {
+    background-color: var(--button-hover);
+    transform: translateY(-2px);
+}
+
+.auth-button {
+    color: #fdd835;
+    font-weight: bold;
+    margin-left: auto;
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.7rem;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+nav.mobile-menu {
+    display: none;
+    width: 100%;
+    background-color: var(--header-bg);
+    padding: 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+}
+
+nav.mobile-menu a {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 0.8rem 1rem;
+    background-color: var(--button-bg);
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+nav.mobile-menu a:hover {
+    background-color: var(--button-hover);
+}
+
+
+/*____________________________________________________________________________________________________________*/
+
+main {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+    flex: 1; /* Это заставит main занимать все доступное пространство */
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    color: var(--accent-color);
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.filter-container {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.filter-container input {
+    padding: 10px;
+    width: 300px;
+    background-color: var(--button-bg);
+    color: white;
+    border: 1px solid #444;
+    border-radius: var(--border-radius);
+}
+
+.filter-container button {
+    padding: 10px 20px;
+    background-color: var(--accent-color);
+    border: none;
+    color: #121212;
+    font-weight: bold;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.freelancer-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.freelancer-card {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.freelancer-card.clickable {
+    cursor: pointer;
+}
+
+.freelancer-card.clickable:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.freelancer-photo {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.freelancer-info h3 {
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
+
+.specialization {
+    color: #aaa;
+}
+
+.rating, .price {
+    margin-top: 5px;
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+.auth-notice {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-top: 10px;
+}
+
+/* Пагинация */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 10px;
+}
+
+.pagination a {
+    color: var(--text-color);
+    background-color: var(--button-bg);
+    padding: 10px 20px;
+    margin: 0 5px;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.pagination a:hover {
+    background-color: var(--accent-color);
+    color: #121212;
+}
+
+.pagination a.active {
+    background-color: var(--accent-color);
+    color: #121212;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .logo-container {
+        margin-right: auto;
+    }
+    
+    nav.desktop-menu {
+        display: none;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    nav.mobile-menu.active {
+        display: flex;
+    }
+
+    :root {
+        --logo-gap: 20px;
+    }
+
+    .main-container {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-container {
+        position: static;
+    }
+}
+
+/* Стили футера */
+footer {
+    background-color: var(--footer-bg);
+    color: var(--text-color);
+    padding: 30px 0;
+    width: 100%;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 20px;
+    padding: 0 15px;
+}
+
+.footer-logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.footer-logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.footer-title {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: var(--accent-color);
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.social-link {
+    display: inline-block;
+    width: var(--social-icon-size);
+    height: var(--social-icon-size);
+    transition: transform 0.3s ease;
+}
+
+.social-link:hover {
+    transform: scale(1.1);
+}
+
+.footer-link {
+    color: var(--text-color);
+    text-decoration: none;
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: var(--accent-color);
+}
+
+.contact-info {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-section {
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .footer-logo {
+        justify-content: center;
+    }
+}
+
+
+/*Гости*/
+.auth-notice {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-top: 10px;
+}
+
+.auth-notice a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.auth-notice a:hover {
+    text-decoration: underline;
+}
+
+.guest-notice {
+    background-color: var(--card-bg);
+    padding: 15px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    margin: 20px auto;
+    max-width: 500px;
+}
+
+.guest-notice p {
+    margin-bottom: 10px;
+}
+
+.guest-notice a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.guest-notice a:hover {
+    text-decoration: underline;
+}
+
+/*Кликабельность карточки*/
+.order-card.clickable {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.order-card.clickable:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
